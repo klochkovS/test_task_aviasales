@@ -1,9 +1,10 @@
 import React from 'react';
 import TicketList from './TicketList';
+import FilterList from './FilterList';
 
 const App = () => (
   <div className="App">
-    <h1> Hello, World!!! </h1>
+    <FilterList />
     <TicketList />
   </div>
 );
