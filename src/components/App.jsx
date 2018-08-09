@@ -7,9 +7,15 @@ class App extends Component {
     super(props);
     this.state = {
       stopsParam: [],
+      currency: 'eur',
     };
 
     this.handleStops = this.handleStops.bind(this);
+    this.handleCurrencyControl = this.handleCurrencyControl.bind(this);
+  }
+
+  handleCurrencyControl(event) {
+    this.setState({ currency: event.target.innerText.toLowerCase() });
   }
 
   handleStops(event) {
@@ -45,11 +51,14 @@ class App extends Component {
   }
 
   render() {
-    const { stopsParam } = this.state;
+    const { stopsParam, currency } = this.state;
     return (
       <div className="App">
-        <FilterList handleStops={this.handleStops} />
-        <TicketList stopsParam={stopsParam} />
+        <FilterList
+          handleStops={this.handleStops}
+          handleCurrencyControl={this.handleCurrencyControl}
+        />
+        <TicketList stopsParam={stopsParam} currency={currency} />
       </div>
     );
   }
