@@ -1,9 +1,9 @@
 import React from 'react';
 import StopsFilter from './StopsFilter';
 
-const FilterList = () => (
+const FilterList = ({ handleStops }) => (
   <div className="filters">
-    <StopsFilter />
+    <StopsFilter handleStops={handleStops} />
   </div>
 );
 
