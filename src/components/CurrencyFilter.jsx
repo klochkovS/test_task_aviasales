@@ -1,17 +1,28 @@
 import React from 'react';
 
-const CurrencyFilter = ({ handleCurrencyControl }) => (
+const curencyList = [
+  'RUB',
+  'USD',
+  'EUR',
+];
+
+const CurrencyFilter = ({ handleCurrencyControl, currencyCode }) => (
   <div className="currency">
     <ul>
-      <li onClick={handleCurrencyControl}>
-        <span>rub</span>
-      </li>
-      <li onClick={handleCurrencyControl}>
-        <span>usd</span>
-      </li>
-      <li onClick={handleCurrencyControl}>
-        <span>eur</span>
-      </li>
+      {curencyList.map((v) => {
+        if (v === currencyCode) {
+          return (
+            <li className="selected" onClick={handleCurrencyControl}>
+              <span>{v}</span>
+            </li>
+          );
+        }
+        return (
+          <li onClick={handleCurrencyControl}>
+            <span>{v}</span>
+          </li>
+        );
+      })}
     </ul>
   </div>
 );

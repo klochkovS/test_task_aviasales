@@ -1,9 +1,6 @@
 import React from 'react';
 import initialData from '../../data/tickets.json';
 
-const usd = 66;
-const eur = 76.59;
-
 const TicketList = ({ stopsParam, currency }) => (
   <div>
     {initialData.tickets
@@ -13,13 +10,7 @@ const TicketList = ({ stopsParam, currency }) => (
         return (
           <div>
             <span>{val.stops}</span><br />
-            <span>{
-              currency === 'usd' ?
-                val.price / usd :
-                currency === 'eur' ?
-                  val.price / eur :
-                  val.price
-            }</span>
+            <span>{val.price * currency}</span>
           </div>
         )
       })

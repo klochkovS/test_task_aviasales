@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import fetch from 'cross-fetch';
 import TicketList from './TicketList';
 import FilterList from './FilterList';
 
@@ -7,7 +8,9 @@ class App extends Component {
     super(props);
     this.state = {
       stopsParam: [],
-      currency: 'eur',
+      currencyCode: 'rub',
+      currencyIndex: 1,
+      isLoading: false,
     };
 
     this.handleStops = this.handleStops.bind(this);
@@ -15,7 +18,21 @@ class App extends Component {
   }
 
   handleCurrencyControl(event) {
-    this.setState({ currency: event.target.innerText.toLowerCase() });
+    const currencyCode = event.target.innerText.toUpperCase();
+    this.setState({ currencyCode, isLoading: true });
+    const url = `https://free.currencyconverterapi.com/api/v6/convert?q=RUB_${currencyCode}&compact=ultra`;
+    fetch(url)
+      .then((res) => {
+        if (res.status !== 200) {
+          throw new Error('Bad response from server');
+        }
+        return res.json();
+      })
+      .then(json => this.setState({
+        currencyIndex: json[`RUB_${currencyCode.toUpperCase()}`],
+        isLoading: false,
+      }))
+      .catch(error => console.error(error));
   }
 
   handleStops(event) {
@@ -51,17 +68,25 @@ class App extends Component {
   }
 
   render() {
-    const { stopsParam, currency } = this.state;
+    const { stopsParam, currencyIndex, isLoading, currencyCode } = this.state;
     return (
       <div className="App">
         <FilterList
+          currencyCode={currencyCode}
           handleStops={this.handleStops}
           handleCurrencyControl={this.handleCurrencyControl}
         />
-        <TicketList stopsParam={stopsParam} currency={currency} />
+        {isLoading
+          ? <span>Загрузка курса</span>
+          : true}
+        <TicketList
+          stopsParam={stopsParam}
+          currency={currencyIndex}
+        />
       </div>
     );
   }
 }
+
 
 export default App;
