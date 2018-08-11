@@ -81,7 +81,7 @@ class App extends Component {
           : true}
         <TicketList
           stopsParam={stopsParam}
-          currency={currencyIndex}
+          currencyIndex={currencyIndex}
         />
       </div>
     );

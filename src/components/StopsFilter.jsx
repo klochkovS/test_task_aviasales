@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const StopsFilter = ({ handleStops }) => (
   <div className="stops">
@@ -21,6 +22,8 @@ const StopsFilter = ({ handleStops }) => (
   </div>
 );
 
+StopsFilter.propTypes = {
+  handleStops: PropTypes.func.isRequired,
+};
 
 export default StopsFilter;
-
