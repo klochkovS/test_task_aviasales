@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import fetch from 'cross-fetch';
-import TicketList from './TicketList';
-import FilterList from './FilterList';
+import TicketList from '../TicketList/TicketList';
+import FilterList from '../FilterList/FilterList';
+import './app.css';
 
 class App extends Component {
   constructor(props) {
@@ -36,6 +37,8 @@ class App extends Component {
   }
 
   handleStops(event) {
+    console.log('press');
+    console.log(event.target);
     const { stopsParam } = this.state;
     switch (event.target.id) {
       case 'stops_0': {
@@ -68,9 +71,14 @@ class App extends Component {
   }
 
   render() {
-    const { stopsParam, currencyIndex, isLoading, currencyCode } = this.state;
+    const {
+      stopsParam,
+      currencyIndex,
+      isLoading,
+      currencyCode,
+    } = this.state;
     return (
-      <div className="App">
+      <div className="page">
         <FilterList
           currencyCode={currencyCode}
           handleStops={this.handleStops}

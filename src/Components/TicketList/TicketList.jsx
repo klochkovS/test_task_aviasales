@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import initialData from '../../data/tickets.json';
+import initialData from '../../../data/tickets.json';
 
 const TicketList = ({ stopsParam, currencyIndex }) => (
   <div>
@@ -10,7 +10,7 @@ const TicketList = ({ stopsParam, currencyIndex }) => (
       .map(val => (
         <div>
           <span>{val.stops}</span><br />
-          <span>{(val.price * currencyIndex).toFixed(2)}</span>
+          <span>{Math.ceil(val.price * currencyIndex)}</span>
         </div>
       ))
     }
@@ -18,7 +18,7 @@ const TicketList = ({ stopsParam, currencyIndex }) => (
 );
 
 TicketList.propTypes = {
-  stopsParam: PropTypes.func.isRequired,
+  stopsParam: PropTypes.arrayOf(PropTypes.number).isRequired,
   currencyIndex: PropTypes.number.isRequired,
 };
 

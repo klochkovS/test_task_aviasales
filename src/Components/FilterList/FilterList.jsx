@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StopsFilter from './StopsFilter';
-import CurrencyFilter from './CurrencyFilter';
+import StopsFilter from '../StopsFilter/StopsFilter';
+import CurrencyFilter from '../CurrencyFilter/CurrencyFilter';
+import './filters.css';
 
 const FilterList = ({ handleStops, handleCurrencyControl, currencyCode }) => (
   <div className="filters">
