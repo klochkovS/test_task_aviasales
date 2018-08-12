@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import initialData from '../../../data/tickets.json';
+import Ticket from '../Ticket/Ticket';
 
 const TicketList = ({ stopsParam, currencyIndex }) => (
   <div>
@@ -9,8 +10,7 @@ const TicketList = ({ stopsParam, currencyIndex }) => (
       .filter(ticket => stopsParam.includes(ticket.stops))
       .map(val => (
         <div>
-          <span>{val.stops}</span><br />
-          <span>{Math.ceil(val.price * currencyIndex)}</span>
+          <Ticket tripData={val} currencyIndex={currencyIndex} />
         </div>
       ))
     }
