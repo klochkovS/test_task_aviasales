@@ -4,3 +4,12 @@
   background-color: #F3F7FA;
   font: normal 100% 'Open Sans', sans-serif;
 }
+
+
+.logo {
+  width: 10.2539063%;   /* 105 / 1024 */
+}
+
+.logo_type_header {
+  margin: 0 auto;
+}

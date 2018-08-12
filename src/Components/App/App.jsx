@@ -3,6 +3,7 @@ import fetch from 'cross-fetch';
 import TicketList from '../TicketList/TicketList';
 import FilterList from '../FilterList/FilterList';
 import './app.css';
+import logo from '../../../public/images/logo.png';
 
 class App extends Component {
   constructor(props) {
@@ -77,6 +78,13 @@ class App extends Component {
     } = this.state;
     return (
       <div className="page">
+        <header className="head">
+          <div className="logo logo_type_header">
+            <a className="logo__link" href="#">
+              <img className="logo__img" src={logo} alt="" />
+            </a>
+          </div>
+        </header>
         <FilterList
           currencyCode={currencyCode}
           handleStops={this.handleStops}
