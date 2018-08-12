@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const curencyList = [
   'RUB',
@@ -7,35 +8,38 @@ const curencyList = [
 ];
 
 const CurrencyFilter = ({ handleCurrencyControl, currencyCode }) => (
-  <div className="filters__item">
-    <div className="filters__header">ВАЛЮТА</div>
-    <div className="filters__content">
-      <div className="checkboxes-list">
-        {curencyList.map((v) => {
-          if (v === currencyCode) {
+  <div className="filters__item filter">
+    <div className="filter__header">валюта</div>
+    <div className="filter__content">
+      <ul className="currency-list">
+        {
+          curencyList.map((val) => {
+            if (val === currencyCode) {
+              return (
+                <li
+                  className="currency-list__item currency-list__item_selected"
+                  onClick={handleCurrencyControl}
+                >{val}
+                </li>
+              );
+            }
             return (
-              <div className="checkboxes-list__item" onClick={handleCurrencyControl}>
-                <span className="checkbox">
-                  <input className="checkbox__field" type="checkbox" />
-                  <span className="checkbox__view" />
-                </span>
-                <label className="checkboxes-list__label">{v}</label>
-              </div>
+              <li
+                className="currency-list__item"
+                onClick={handleCurrencyControl}
+              >{val}
+              </li>
             );
-          }
-          return (
-            <div className="checkboxes-list__item" onClick={handleCurrencyControl}>
-              <span className="checkbox">
-                <input className="checkbox__field" type="checkbox" />
-                <span className="checkbox__view" />
-              </span>
-              <label className="checkboxes-list__label">{v}</label>
-            </div>
-          );
-        })}
-      </div>
+          })
+        }
+      </ul>
     </div>
   </div>
 );
+
+CurrencyFilter.propTypes = {
+  handleCurrencyControl: PropTypes.func.isRequired,
+  currencyCode: PropTypes.string.isRequired,
+};
 
 export default CurrencyFilter;
