@@ -37,8 +37,6 @@ class App extends Component {
   }
 
   handleStops(event) {
-    console.log('press');
-    console.log(event.target);
     const { stopsParam } = this.state;
     switch (event.target.id) {
       case 'stops_0': {

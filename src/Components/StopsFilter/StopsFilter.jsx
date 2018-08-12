@@ -16,13 +16,13 @@ const StopsFilter = ({ handleStops }) => (
         {
           stops.map((label, stopsCount) => (
             <div className="checkboxes-list__item">
-              <div className="checkboxes-list__label" onClick={handleStops} id={`stops_${stopsCount}`}>
+              <label className="checkboxes-list__label" htmlFor={`stops_${stopsCount}`}>
                 <span className="checkbox">
-                  <input className="checkbox__field" type="checkbox" />
+                  <input className="checkbox__field" type="checkbox" onChange={handleStops} id={`stops_${stopsCount}`} />
                   <span className="checkbox__view" />
                 </span>
                 {label}
-              </div>
+              </label>
             </div>
           ))
         }
