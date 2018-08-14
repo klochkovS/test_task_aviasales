@@ -4,7 +4,7 @@ import initialData from '../../../data/tickets.json';
 import Ticket from '../Ticket/Ticket';
 
 const TicketList = ({ stopsParam, currencyIndex }) => (
-  <div>
+  <div className="tickets">
     {initialData.tickets
       .sort((a, b) => a.price - b.price) // Меняет исходный массив!
       .filter(ticket => stopsParam.includes(ticket.stops))

@@ -1,0 +1,11 @@
+.filter {
+  display: flex;
+  flex-direction: column;
+  padding:  7.32758621% 4.31034483%; /* 10 / 232 */
+}
+
+.filter__header {
+  text-transform: uppercase;
+  font: bold 0.75em 'Open Sans', sans-serif; /* 12 / 16 */
+  letter-spacing: 0.0625em;  /* 1 / 16 */
+}

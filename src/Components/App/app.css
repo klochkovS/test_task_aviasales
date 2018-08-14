@@ -1,13 +1,22 @@
 .page {
-  width: 1024px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 79.8828125%;
+  min-height: 500px;
   margin: 0 auto;
-  background-color: #F3F7FA;
   font: normal 100% 'Open Sans', sans-serif;
 }
 
+.head {
+  flex-basis: 100%;
+}
 
 .logo {
-  width: 10.2539063%;   /* 105 / 1024 */
+  width: 12.8361858%;   /* 105 / 818 */
+  overflow: hidden;
 }
 
 .logo_type_header {

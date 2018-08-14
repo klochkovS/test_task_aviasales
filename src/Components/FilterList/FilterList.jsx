@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import StopsFilter from '../StopsFilter/StopsFilter';
 import CurrencyFilter from '../CurrencyFilter/CurrencyFilter';
 import './filters.css';
+import './filter.css';
 
 const FilterList = ({ handleStops, handleCurrencyControl, currencyCode }) => (
   <div className="filters">
