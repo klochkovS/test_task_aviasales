@@ -20,7 +20,7 @@ const CurrencyFilter = ({ handleCurrencyControl, currencyCode }) => (
                 <li
                   className="currency-list__item currency-list__item_selected"
                   onClick={handleCurrencyControl}
-                >{val}
+                ><span className="currency-list__title">{val}</span>
                 </li>
               );
             }
@@ -28,7 +28,7 @@ const CurrencyFilter = ({ handleCurrencyControl, currencyCode }) => (
               <li
                 className="currency-list__item"
                 onClick={handleCurrencyControl}
-              >{val}
+              ><span className="currency-list__title">{val}</span>
               </li>
             );
           })

@@ -10,7 +10,7 @@ class App extends Component {
     super(props);
     this.state = {
       stopsParam: [],
-      currencyCode: 'rub',
+      currencyCode: 'RUB',
       currencyIndex: 1,
       isLoading: false,
     };
@@ -20,7 +20,8 @@ class App extends Component {
   }
 
   handleCurrencyControl(event) {
-    const currencyCode = event.target.innerText.toUpperCase();
+    const currencyCode = event.target.textContent.toUpperCase();
+    console.log(currencyCode);
     this.setState({ currencyCode, isLoading: true });
     const url = `https://free.currencyconverterapi.com/api/v6/convert?q=RUB_${currencyCode}&compact=ultra`;
     fetch(url)
