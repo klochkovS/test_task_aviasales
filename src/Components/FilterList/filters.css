@@ -2,9 +2,9 @@
   display: flex;
   flex-direction: column;
   width: 28.3618582%; /* 232/818 */
+  height: 100%;
   background-color: #fff;
   color: #4A4A4A;
   border-radius: 5px;
-  /* border: 1px solid #eff1f4; */
   box-shadow: 0 1px 5px 0 rgba(0,0,0,.15);
 }
